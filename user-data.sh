@@ -7,7 +7,7 @@ apt-get update -y
 apt-get install git -y
 
 # Clone your repository (replace 'https://your_github_repo.git' with your actual repo URL)
-git clone https://github.com/Elwakeel-ah/EC2.git /var/www/app
+git clone https://github.com/Elwakeel-ah/EC2-a.git /var/www/app
 
 # update
 sudo apt update
