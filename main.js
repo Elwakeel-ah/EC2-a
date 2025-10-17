@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const name = "A";
 const port = 80;
 
 // Function to calculate the nth Fibonacci number
@@ -11,19 +12,23 @@ function fibonacci(n) {
 // CPU-intensive route
 app.get("/fib", (req, res) => {
   const result = fibonacci(40);
-  res.send(`Fibonacci number for is ${result}`);
+  res.send(`Fibonacci number from ${name} for is ${result}`);
 });
 
-app.get("/route-a", (req, res) => {
-  const result = fibonacci(40);
-  res.send("route A achieved");
+// hit the route itself
+app.get(`/route-${name}`, (req, res) => {
+  res.send(`route ${name} achieved`);
+});
+
+app.get(`/whoami`, (req, res) => {
+  res.send(`I am route ${name} :)`);
 });
 
 // Health check route
 app.get("/health", (req, res) => {
-  res.send("API is healthy");
+  res.send("I'm alive!");
 });
 
 app.listen(port, () => {
-  console.log(`API is running on http://localhost:${port}`);
+  console.log(`API is running on port: ${port}`);
 });
