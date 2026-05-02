@@ -45,7 +45,7 @@ app.post("/proxy", async (req, res) => {
   }
 });
 
-app.get("/proxy-call", async () => {
+app.get("/proxy-call", async (req, res) => {
   res.send(`Hello from ${name}'s proxy call!`);
 });
 

@@ -17,11 +17,14 @@ sudo apt install -y nodejs
 
 sudo apt install -y npm
 
-# Navigate to the application directory
 cd /var/www/app
 
-# Install application dependencies
 npm install
 
-# Start the application (replace 'npm start' with your specific startup command if different)
-sudo node ./main.js
+# Navigate to the application directory
+
+# Install application dependencies
+npm install -g pm2
+pm2 start main.js --name app-a
+pm2 startup systemd -u root --hp /root
+pm2 save
